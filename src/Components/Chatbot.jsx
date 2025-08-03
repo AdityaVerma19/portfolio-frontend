@@ -34,7 +34,7 @@ const Chatbot = () => {
     
 
     try {
-      const response = await fetch('http://localhost:5002/api/chat', {
+      const response = await fetch('https://portfolio-backend-s95q.onrender.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
