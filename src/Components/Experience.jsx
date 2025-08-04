@@ -52,7 +52,7 @@ const experiences = [
       'Completed the intensive "Advanced Drone Technology (Air Taxi)" workshop.',
     'Conducted by the India Space Lab in collaboration with ISRO.',
     'Gained hands-on insights into the future of unmanned aerial vehicle (UAV) systems and urban air mobility.',
-  ,
+  
     ],
     certificate: certificate3,
   },
@@ -125,7 +125,7 @@ const Experience = () => {
   return (
     <section id="experience" className="py-20 px-4 bg-slate-300">
       <div className="text-center mb-16">
-        <p className="font-semibold text-gray-600 text-lg">My Professional Journey</p>
+        <p className="font-semibold text-gray-800 text-lg">My Professional Journey</p>
         <h1 className="text-4xl font-bold">Experience</h1>
       </div>
 
@@ -143,15 +143,15 @@ const Experience = () => {
             variants={tileVariants}
           >
             <h3 className="text-2xl font-bold text-indigo-600">{exp.role}</h3>
-            <p className="font-semibold text-lg text-gray-700 mt-1">{exp.company}</p>
+            <p className="font-semibold text-lg text-gray-900 mt-1">{exp.company}</p>
 
             <div className='flex justify-between'>
-            <p className="text-sm text-gray-500 mb-4">{exp.date}</p>
-            <p className="text-sm text-gray-500 mb-4">{exp.location}</p>
+            <p className="text-sm text-black mb-4">{exp.date}</p>
+            <p className="text-sm text-black mb-4">{exp.location}</p>
             
             </div>
           
-            <ul className="list-disc list-inside space-y-2 text-gray-600 flex-grow mb-6">
+            <ul className="list-disc list-inside space-y-2 text-purple-900 flex-grow mb-6">
               {exp.description.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}

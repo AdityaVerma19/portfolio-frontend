@@ -42,7 +42,7 @@ const Hero = () => {
 
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start items-center buttons-container">
           
-          <BlobButton to="/Aditya_Verma_SDE Resume .pdf" download={true}>
+          <BlobButton to="/Aditya Verma Resume.pdf" download={true}>
             Download CV
           </BlobButton>
           
