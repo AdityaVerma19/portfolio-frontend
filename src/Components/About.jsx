@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import myPic from "../assets/aaditya2.jpeg";
+import myPic from "../assets/IMG_7243.jpeg";
 import { FaBriefcase, FaGraduationCap, FaTrophy } from "react-icons/fa";
 
 const mainContainerVariants = {
@@ -35,12 +35,16 @@ const About = () => {
   return (
     <section
       id="about"
-      className="px-6 py-16 min-h-fit bg-gradient-to-t from-white via-green-200 to-green-700"
+      className="px-6 py-20 min-h-fit bg-transparent relative z-10"
     >
-      <p className="text-center font-semibold text-gray-600">
+      <p className="text-center font-semibold text-amber-400 uppercase tracking-widest text-xs">
         Get To Know More
       </p>
-      <h1 className="text-center text-3xl font-bold mb-12">About Me</h1>
+      <h1 className="text-center text-3xl md:text-4xl font-bold mb-12 mt-2">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400">
+          About Me
+        </span>
+      </h1>
 
       {/*main. motion.div */}
       <motion.div
@@ -52,11 +56,11 @@ const About = () => {
       >
         {/* first child  */}
         <motion.div className="flex-shrink-0" variants={itemVariants}>
-          <motion.div className="group relative rounded-full p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_35px_5px_rgba(79,70,229,0.7)]">
+          <motion.div className="group relative rounded-full p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_35px_5px_rgba(245,158,11,0.5)]">
             <img
               src={myPic}
               alt="Aaditya Verma's profile picture"
-              className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-xl"
+              className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-xl border border-amber-500/20"
             />
           </motion.div>
         </motion.div>
@@ -72,55 +76,55 @@ const About = () => {
             variants={cardContainerVariants}
           >
             <motion.div
-              className="group relative h-36 w-full cursor-pointer overflow-hidden rounded-xl border border-gray-300 p-4 shadow-sm bg-gray-200"
+              className="group relative h-36 w-full cursor-pointer overflow-hidden rounded-xl border border-slate-800/80 p-4 glass-card shadow-lg glow-card-indigo transition-all duration-300"
               variants={cardVariants}
             >
               <div className="flex flex-col items-center justify-center">
-                <FaBriefcase className="mb-2 h-8 w-8 text-indigo-600" />
-                <h3 className="font-semibold">Experience</h3>
+                <FaBriefcase className="mb-2 h-8 w-8 text-indigo-400" />
+                <h3 className="font-semibold text-slate-200 mt-1">Experience</h3>
               </div>
-              <div className="absolute inset-0 flex transform flex-col items-center justify-center bg-indigo-600 p-4 text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 translate-y-full">
+              <div className="absolute inset-0 flex transform flex-col items-center justify-center bg-indigo-700 p-4 text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 translate-y-full">
                 <h4 className="mb-1 font-bold">2+ Years</h4>
-                <p className="text-sm">
+                <p className="text-xs text-center">
                   Building responsive and dynamic user interfaces.
                 </p>
               </div>
             </motion.div>
 
-            <motion.div reduceMotion="never"
+            <motion.div
               initial="hidden"
               whileInView="visible"
-              className="group relative h-36 w-full cursor-pointer  rounded-xl border border-gray-300 p-4 shadow-sm bg-gray-200 overflow-hidden"
+              className="group relative h-36 w-full cursor-pointer rounded-xl border border-slate-800/80 p-4 glass-card shadow-lg overflow-hidden glow-card-amber transition-all duration-300"
               variants={cardVariants}
             > 
               <motion.div className="flex flex-col items-center justify-center">
-                <FaTrophy className="mb-2 h-8 w-8 text-amber-500" />
-                <h3 className="font-semibold">Achievements</h3>
+                <FaTrophy className="mb-2 h-8 w-8 text-amber-400" />
+                <h3 className="font-semibold text-slate-200 mt-1">Achievements</h3>
               </motion.div>
-              <motion.div className="absolute inset-0 flex transform flex-col items-center justify-center bg-amber-500 p-4 text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 translate-y-full">
+              <motion.div className="absolute inset-0 flex transform flex-col items-center justify-center bg-amber-600 p-4 text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 translate-y-full">
                 <h4 className="mb-1 font-bold">Runner Up Trophy 2nd Place</h4>
-                <p className="text-sm">Winner of the few Hackathons</p>
+                <p className="text-xs text-center">Winner of the few Hackathons</p>
               </motion.div>
             </motion.div>
 
             <motion.div
-              className="group relative h-36 w-full cursor-pointer overflow-hidden rounded-xl border border-gray-300 p-4 shadow-sm bg-gray-200"
+              className="group relative h-36 w-full cursor-pointer overflow-hidden rounded-xl border border-slate-800/80 p-4 glass-card shadow-lg glow-card-emerald transition-all duration-300"
               variants={cardVariants}
             >
               <div className="flex flex-col items-center justify-center ">
-                <FaGraduationCap className="mb-2 h-8 w-8 text-black" />
-                <h3 className="font-semibold">Education</h3>
+                <FaGraduationCap className="mb-2 h-8 w-8 text-emerald-400" />
+                <h3 className="font-semibold text-slate-200 mt-1">Education</h3>
               </div>
-              <div className="absolute inset-0 flex transform flex-col items-center justify-center bg-green-700 p-4 text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 translate-y-full">
+              <div className="absolute inset-0 flex transform flex-col items-center justify-center bg-emerald-700 p-4 text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 translate-y-full">
                 <h4 className="mb-1 font-bold">B.Tech - DTU</h4>
-                <p className="text-sm">
+                <p className="text-xs text-center">
                   Major in Mathematics and Computing Engineering.
                 </p>
               </div>
             </motion.div>
           </motion.div>
 
-          <div className="text-justify text-black space-y-4 font-medium text-[18px]">
+          <div className="text-justify text-slate-300 space-y-4 font-medium text-[18px] leading-relaxed">
             <p>
               Hi! I’m Aditya Verma, a passionate and driven Computer Science
               undergrad with a specialization in Mathematics and Computing

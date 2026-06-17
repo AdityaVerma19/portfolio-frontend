@@ -1,5 +1,53 @@
 @import "tailwindcss";
 
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+.hero-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.neon-glow {
+  box-shadow: 0 0 40px -5px rgba(99, 102, 241, 0.3);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 50%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.global-spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle 250px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(99, 102, 241, 0.28) 0%,
+    rgba(59, 130, 246, 0.18) 40%,
+    rgba(16, 185, 129, 0.07) 70%,
+    transparent 100%
+  );
+}
+
 ::-webkit-scrollbar {
     width: 10px; 
   }
@@ -150,3 +198,83 @@
   width: 0;
   height: 0;
 }
+
+/* Active Nav Link Styling */
+.nav-link-active {
+  color: #a5b4fc !important; /* indigo-300 */
+  text-shadow: 0 0 8px rgba(165, 180, 252, 0.8);
+  position: relative;
+}
+
+.nav-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.8);
+}
+
+/* Floating Scroll Navbar styles */
+.navbar-scrolled {
+  background: rgba(10, 15, 30, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.45) !important;
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.45) !important;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+/* Custom Glow Accents */
+.glow-card-indigo:hover {
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.25) !important;
+}
+
+.glow-card-amber:hover {
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.25) !important;
+}
+
+.glow-card-emerald:hover {
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.25) !important;
+}
+
+.glow-card-fuchsia:hover {
+  border-color: rgba(217, 70, 239, 0.5) !important;
+  box-shadow: 0 0 25px rgba(217, 70, 239, 0.25) !important;
+}
+
+.glow-card-cyan:hover {
+  border-color: rgba(6, 182, 212, 0.5) !important;
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.25) !important;
+}
+
+.glow-card-rose:hover {
+  border-color: rgba(244, 63, 94, 0.5) !important;
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.25) !important;
+}
+
+/* Pulsing background animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 15s ease-in-out infinite;
+}
+
+.animate-float-slow-reverse {
+  animation: float-slow 18s ease-in-out infinite reverse;
+}
+
