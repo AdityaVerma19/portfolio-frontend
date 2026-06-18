@@ -1,4 +1,4 @@
-# Aditya Verma | Cyberpunk Personal Portfolio Website
+# Aditya Verma | Personal Portfolio Website
 
 A state-of-the-art developer portfolio designed with a premium dark cyberpunk theme, glassmorphic card elements, custom background neon nebulae, dynamic mouse-tracking glow patterns, and smooth scroll animations.
 
