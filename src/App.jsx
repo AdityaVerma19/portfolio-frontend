@@ -13,6 +13,13 @@ import "./App.css";
 
 const App = () => {
   const [currentView, setCurrentView] = useState("portfolio");
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
 
   useEffect(() => {
     const updateMousePos = (e) => {
@@ -40,7 +47,9 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-[#030712] text-white min-h-screen relative overflow-hidden select-none">
+    <div className={`min-h-screen relative overflow-hidden select-none transition-colors duration-500 ${
+      theme === "light" ? "light bg-[#f0f9ff] text-slate-900" : "bg-[#030712] text-white"
+    }`}>
       {/* 1. Global Spotlight Follower */}
       <div className="global-spotlight" />
 
@@ -74,7 +83,7 @@ const App = () => {
 
           {/* Main Content Sections */}
           <div className="relative z-10">
-            <Navbar />
+            <Navbar theme={theme} toggleTheme={toggleTheme} />
             <Chatbot />
             <Hero />
             <About />

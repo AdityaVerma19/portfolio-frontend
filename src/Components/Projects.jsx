@@ -75,6 +75,82 @@ const projects = [
 const containerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.2 } } };
 const projectVariants = { hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } } };
 
+const ProjectCard = ({ project }) => {
+  const [isActive, setIsActive] = React.useState(false);
+
+  return (
+    <motion.div
+      onClick={() => setIsActive(!isActive)}
+      className={`group relative overflow-hidden rounded-xl border glass-card shadow-2xl glow-card-fuchsia transition-all duration-300 cursor-pointer ${
+        isActive ? 'border-fuchsia-500/50 shadow-[0_0_30px_rgba(217,70,239,0.35)]' : 'border-slate-800/80'
+      }`}
+      variants={projectVariants}
+    >
+      {/* Default Content: Image */}
+      <img
+        src={project.image}
+        alt={`Screenshot of ${project.title}`}
+        className={`w-full h-64 object-cover transition-all duration-500 ${
+          isActive ? 'scale-110 blur-[1px] brightness-75' : 'group-hover-device:scale-110'
+        }`}
+      />
+      
+      {/* Overlay with details - Slides up from the bottom */}
+      <div className={`absolute bottom-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 ${
+        isActive ? 'opacity-0' : 'opacity-100'
+      }`}>
+        <h3 className="text-xl font-bold text-white">{project.title}</h3>
+        {/* Tech Stack Tags  */}
+        <div className="flex flex-wrap gap-2 mt-2">
+          {project.tech.map(tag => (
+            <span key={tag} className="bg-slate-900/90 text-fuchsia-300 border border-fuchsia-500/20 text-xs font-semibold px-2.5 py-0.5 rounded-full shadow-[0_0_10px_rgba(217,70,239,0.15)]">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Hover for Description and Links - Slides up from the top */}
+      <div 
+        className={`absolute inset-0 flex transform flex-col items-center justify-center bg-[#0a0f1d]/95 p-6 text-center text-white
+                       transition-opacity duration-300 border border-fuchsia-500/30 rounded-xl ${
+                         isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 group-hover-device:opacity-100 pointer-events-none group-hover-device:pointer-events-auto'
+                       }`}
+        onClick={(e) => {
+          if (e.target.tagName === 'A' || e.target.closest('a')) {
+            e.stopPropagation();
+          }
+        }}
+      >
+        <p className="mb-4 text-slate-300 text-sm">{project.description}</p>
+        <div className="flex gap-4">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 px-4 py-2 text-white font-semibold hover:from-fuchsia-500 hover:to-purple-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(217,70,239,0.4)] transition-all duration-300 shadow-md"
+          >
+            <FaGithub /> GitHub
+          </a>
+          {project.demo && 
+           project.demo !== "NA" && 
+           !project.demo.startsWith("Run:") && 
+           !project.demo.endsWith(".py") && (
+            <a
+              href={project.demo.startsWith("http") ? project.demo : `https://${project.demo}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 px-4 py-2 text-white font-semibold hover:from-fuchsia-500 hover:to-purple-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(217,70,239,0.4)] transition-all duration-300 shadow-md"
+            >
+              <CgWebsite /> Demo
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Projects = () => {
   return (
     <section id="projects" className="py-20 px-4 bg-transparent relative z-10">
@@ -95,60 +171,7 @@ const Projects = () => {
         viewport={{ once: true }}
       >
         {projects.map((project) => (
-          <motion.div
-            key={project.title}
-            className="group relative overflow-hidden rounded-xl border border-slate-800/80 glass-card shadow-2xl glow-card-fuchsia transition-all duration-300 cursor-pointer"
-            variants={projectVariants}
-          >
-            {/* Default Content: Image */}
-            <img
-              src={project.image}
-              alt={`Screenshot of ${project.title}`}
-              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            
-            {/* Overlay with details - Slides up from the bottom */}
-            <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
-              <h3 className="text-xl font-bold text-white">{project.title}</h3>
-              {/* Tech Stack Tags  */}
-              <div className="flex flex-wrap gap-2 mt-2">
-                {project.tech.map(tag => (
-                  <span key={tag} className="bg-slate-900/90 text-fuchsia-300 border border-fuchsia-500/20 text-xs font-semibold px-2.5 py-0.5 rounded-full shadow-[0_0_10px_rgba(217,70,239,0.15)]">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Hover for Description and Links - Slides up from the top */}
-            <div className="absolute inset-0 flex transform flex-col items-center justify-center bg-[#0a0f1d]/95 p-6 text-center text-white
-                           opacity-0 transition-opacity duration-300 group-hover:opacity-100 border border-fuchsia-500/30 rounded-xl">
-              <p className="mb-4 text-slate-300 text-sm">{project.description}</p>
-              <div className="flex gap-4">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 px-4 py-2 text-white font-semibold hover:from-fuchsia-500 hover:to-purple-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(217,70,239,0.4)] transition-all duration-300 shadow-md"
-                >
-                  <FaGithub /> GitHub
-                </a>
-                {project.demo && 
-                 project.demo !== "NA" && 
-                 !project.demo.startsWith("Run:") && 
-                 !project.demo.endsWith(".py") && (
-                  <a
-                    href={project.demo.startsWith("http") ? project.demo : `https://${project.demo}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 px-4 py-2 text-white font-semibold hover:from-fuchsia-500 hover:to-purple-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(217,70,239,0.4)] transition-all duration-300 shadow-md"
-                  >
-                    <CgWebsite /> Demo
-                  </a>
-                )}
-              </div>
-            </div>
-          </motion.div>
+          <ProjectCard key={project.title} project={project} />
         ))}
       </motion.div>
     </section>

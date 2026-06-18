@@ -32,6 +32,12 @@ const cardVariants = {
 };
 
 const About = () => {
+  const [activeCard, setActiveCard] = React.useState(null);
+
+  const handleCardClick = (cardName) => {
+    setActiveCard(activeCard === cardName ? null : cardName);
+  };
+
   return (
     <section
       id="about"
@@ -56,7 +62,7 @@ const About = () => {
       >
         {/* first child  */}
         <motion.div className="flex-shrink-0" variants={itemVariants}>
-          <motion.div className="group relative rounded-full p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_35px_5px_rgba(245,158,11,0.5)]">
+          <motion.div className="group relative rounded-full p-1 transition-all duration-300 ease-in-out hover-device:scale-105 hover-device:shadow-[0_0_35px_5px_rgba(245,158,11,0.5)]">
             <img
               src={myPic}
               alt="Aaditya Verma's profile picture"
@@ -76,46 +82,59 @@ const About = () => {
             variants={cardContainerVariants}
           >
             <motion.div
-              className="group relative h-36 w-full cursor-pointer overflow-hidden rounded-xl border border-slate-800/80 p-4 glass-card shadow-lg glow-card-indigo transition-all duration-300"
+              className={`group relative h-36 w-full cursor-pointer overflow-hidden rounded-xl border p-4 glass-card shadow-lg glow-card-indigo transition-all duration-300 ${
+                activeCard === "experience" ? "border-indigo-500/50 shadow-[0_0_25px_rgba(99,102,241,0.25)]" : "border-slate-800/80"
+              }`}
+              onClick={() => handleCardClick("experience")}
               variants={cardVariants}
             >
-              <div className="flex flex-col items-center justify-center">
+              <div className={`flex flex-col items-center justify-center transition-opacity duration-300 ${activeCard === "experience" ? "opacity-0" : "opacity-100"}`}>
                 <FaBriefcase className="mb-2 h-8 w-8 text-indigo-400" />
                 <h3 className="font-semibold text-slate-200 mt-1">Experience</h3>
               </div>
-              <div className="absolute inset-0 flex transform flex-col items-center justify-center bg-indigo-700 p-4 text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 translate-y-full">
+              <div className={`absolute inset-0 flex transform flex-col items-center justify-center bg-indigo-700 p-4 text-white transition-transform duration-300 ease-in-out group-hover-device:translate-y-0 ${
+                activeCard === "experience" ? "translate-y-0" : "translate-y-full"
+              }`}>
                 <h4 className="mb-1 font-bold">1+ Year</h4>
                 <p className="text-xs text-center">
-                  Building responsive and dynamic user interfaces.
+                  Building responsive and dynamic UIs.
                 </p>
               </div>
             </motion.div>
 
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              className="group relative h-36 w-full cursor-pointer rounded-xl border border-slate-800/80 p-4 glass-card shadow-lg overflow-hidden glow-card-amber transition-all duration-300"
+              className={`group relative h-36 w-full cursor-pointer rounded-xl border p-4 glass-card shadow-lg overflow-hidden glow-card-amber transition-all duration-300 ${
+                activeCard === "achievements" ? "border-amber-500/50 shadow-[0_0_25px_rgba(245,158,11,0.25)]" : "border-slate-800/80"
+              }`}
+              onClick={() => handleCardClick("achievements")}
               variants={cardVariants}
             > 
-              <motion.div className="flex flex-col items-center justify-center">
+              <motion.div className={`flex flex-col items-center justify-center transition-opacity duration-300 ${activeCard === "achievements" ? "opacity-0" : "opacity-100"}`}>
                 <FaTrophy className="mb-2 h-8 w-8 text-amber-400" />
                 <h3 className="font-semibold text-slate-200 mt-1">Achievements</h3>
               </motion.div>
-              <motion.div className="absolute inset-0 flex transform flex-col items-center justify-center bg-amber-600 p-4 text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 translate-y-full">
+              <motion.div className={`absolute inset-0 flex transform flex-col items-center justify-center bg-amber-600 p-4 text-white transition-transform duration-300 ease-in-out group-hover-device:translate-y-0 ${
+                activeCard === "achievements" ? "translate-y-0" : "translate-y-full"
+              }`}>
                 <h4 className="mb-1 font-bold">Runner Up Trophy 2nd Place</h4>
                 <p className="text-xs text-center">Winner of the few Hackathons</p>
               </motion.div>
             </motion.div>
 
             <motion.div
-              className="group relative h-36 w-full cursor-pointer overflow-hidden rounded-xl border border-slate-800/80 p-4 glass-card shadow-lg glow-card-emerald transition-all duration-300"
+              className={`group relative h-36 w-full cursor-pointer overflow-hidden rounded-xl border p-4 glass-card shadow-lg glow-card-emerald transition-all duration-300 ${
+                activeCard === "education" ? "border-emerald-500/50 shadow-[0_0_25px_rgba(16,185,129,0.25)]" : "border-slate-800/80"
+              }`}
+              onClick={() => handleCardClick("education")}
               variants={cardVariants}
             >
-              <div className="flex flex-col items-center justify-center ">
+              <div className={`flex flex-col items-center justify-center transition-opacity duration-300 ${activeCard === "education" ? "opacity-0" : "opacity-100"}`}>
                 <FaGraduationCap className="mb-2 h-8 w-8 text-emerald-400" />
                 <h3 className="font-semibold text-slate-200 mt-1">Education</h3>
               </div>
-              <div className="absolute inset-0 flex transform flex-col items-center justify-center bg-emerald-700 p-4 text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 translate-y-full">
+              <div className={`absolute inset-0 flex transform flex-col items-center justify-center bg-emerald-700 p-4 text-white transition-transform duration-300 ease-in-out group-hover-device:translate-y-0 ${
+                activeCard === "education" ? "translate-y-0" : "translate-y-full"
+              }`}>
                 <h4 className="mb-1 font-bold">B.Tech - DTU</h4>
                 <p className="text-xs text-center">
                   Major in Mathematics and Computing Engineering.

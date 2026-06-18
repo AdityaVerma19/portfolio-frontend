@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { 
@@ -49,21 +49,30 @@ const skillCategories = [
 
 
 const SkillCircle = ({ skill }) => {
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <motion.div
-      className="group relative flex items-center justify-center w-36 h-36
+      onClick={() => setIsActive(!isActive)}
+      className={`group relative flex items-center justify-center w-36 h-36
                  bg-slate-950/75 rounded-full border-2 border-slate-800/80 shadow-lg cursor-pointer
                  transition-all duration-300 ease-in-out
-                 hover:scale-110 hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:border-emerald-500/50"
+                 hover-device:scale-110 hover-device:shadow-[0_0_30px_rgba(16,185,129,0.45)] hover-device:border-emerald-500/50 ${
+                   isActive ? 'scale-110 shadow-[0_0_30px_rgba(16,185,129,0.55)] border-emerald-500/50' : ''
+                 }`}
       variants={{
         hidden: { opacity: 0, scale: 0.5 },
         visible: { opacity: 1, scale: 1, transition: { type: 'spring' } },
       }}
     >
-      <div className="absolute transition-opacity duration-300 group-hover:opacity-0">
+      <div className={`absolute transition-opacity duration-300 group-hover-device:opacity-0 ${
+        isActive ? 'opacity-0' : 'opacity-100'
+      }`}>
         {skill.icon}
       </div>
-      <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover-device:opacity-100 ${
+        isActive ? 'opacity-100' : 'opacity-0'
+      }`}>
         <span className="text-4xl font-bold text-emerald-400 font-mono">{skill.level}</span>
       </div>
     </motion.div>

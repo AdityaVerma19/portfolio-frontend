@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import logoImage from "../assets/logo.png"; 
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -80,11 +80,27 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="p-2.5 rounded-full bg-slate-900/60 border border-slate-800 text-slate-300 hover:text-amber-400 hover:border-amber-500/50 hover:scale-110 transition-all duration-300 cursor-pointer flex items-center justify-center shadow-lg"
+            aria-label="Toggle Theme"
+          >
+            {theme === "light" ? <FiMoon size={18} className="text-slate-700" /> : <FiSun size={18} className="text-amber-400" />}
+          </button>
         </div>
  
-        {/* Hamburger Icon */}
-        <div className="md:hidden text-white">
-          <button onClick={handleToggle} aria-label="Toggle navigation menu">
+        {/* Hamburger Icon & Theme Toggle for Mobile */}
+        <div className="md:hidden flex items-center gap-4 text-white">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-slate-900/60 border border-slate-800 text-slate-300 hover:text-amber-400 hover:scale-105 transition-all duration-300 cursor-pointer flex items-center justify-center"
+            aria-label="Toggle Theme"
+          >
+            {theme === "light" ? <FiMoon size={16} className="text-slate-700" /> : <FiSun size={16} className="text-amber-400" />}
+          </button>
+          <button onClick={handleToggle} aria-label="Toggle navigation menu" className="text-white hover:text-indigo-400 transition-colors duration-300">
             {navOpen ? <FiX size={28} /> : <FiMenu size={28} />}
           </button>
         </div>

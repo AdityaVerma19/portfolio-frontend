@@ -41,7 +41,7 @@ const BlogsComing = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] text-white flex flex-col justify-between px-6 py-12 relative overflow-hidden select-none">
+    <div className="min-h-screen bg-transparent text-current flex flex-col justify-between px-6 py-12 relative overflow-hidden select-none">
       {/* Background Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-indigo-500/15 blur-[120px]" />
