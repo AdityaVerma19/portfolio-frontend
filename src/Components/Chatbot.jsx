@@ -34,7 +34,11 @@ const Chatbot = () => {
     
 
     try {
-      const response = await fetch('https://portfolio-backend-s95q.onrender.com/api/chat', {
+      const apiUrl = import.meta.env.DEV 
+        ? 'http://localhost:5002/api/chat' 
+        : 'https://portfolio-backend-s95q.onrender.com/api/chat';
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -117,7 +121,7 @@ const Chatbot = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about Aditya..."
-                className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                className="w-full px-4 py-2 border border-gray-300 rounded-full bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 disabled={isLoading}
               />
               <button type="submit" className="ml-3 p-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 disabled:bg-indigo-400" disabled={isLoading}>

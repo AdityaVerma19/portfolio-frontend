@@ -84,7 +84,7 @@ const About = () => {
                 <h3 className="font-semibold text-slate-200 mt-1">Experience</h3>
               </div>
               <div className="absolute inset-0 flex transform flex-col items-center justify-center bg-indigo-700 p-4 text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 translate-y-full">
-                <h4 className="mb-1 font-bold">2+ Years</h4>
+                <h4 className="mb-1 font-bold">1+ Year</h4>
                 <p className="text-xs text-center">
                   Building responsive and dynamic user interfaces.
                 </p>
@@ -126,44 +126,16 @@ const About = () => {
 
           <div className="text-justify text-slate-300 space-y-4 font-medium text-[18px] leading-relaxed">
             <p>
-              Hi! I’m Aditya Verma, a passionate and driven Computer Science
-              undergrad with a specialization in Mathematics and Computing
-              Engineering from Delhi Technological University (DTU).
+              Hi! I’m Aditya Verma, a passionate AI/ML Engineer Intern and Full-Stack Developer with a specialization in Mathematics and Computing Engineering from Delhi Technological University (DTU). I hold a strong foundation in Computer Science fundamentals, including Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, and Operating Systems.
             </p>
             <p>
-              I love building purposeful, user-centric web applications and
-              solving real-world problems through clean, efficient code. Over
-              the past few years, I’ve immersed myself in frontend technologies
-              like React.js, Next.js, Tailwind CSS, and TypeScript, while also
-              working with backend tools like Node.js, Express, and PostgreSQL.
+              My primary areas of interest lie in Machine Learning, Deep Learning, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), Natural Language Processing (NLP), and Multimodal AI. I am particularly interested in the end-to-end lifecycle of intelligent systems—from data preprocessing and model training/fine-tuning to inference optimization. Bridging this with full-stack MERN (MongoDB, Express, React, Node.js) development, I build robust, responsive user interfaces and high-performance backend pipelines to deploy intelligent models into production.
             </p>
             <p>
-              My interests lie at the intersection of web development,
-              data-driven design, and ethical AI. I’ve interned as a Frontend
-              Engineer and Cybersecurity Intern, gaining hands-on experience in
-              building responsive UIs, integrating APIs, and ensuring secure
-              digital experiences.
+              I actively explore Transformer architectures, attention mechanisms, vector databases, semantic search, agentic workflows, and parameter-efficient fine-tuning (PEFT) techniques. My focus extends beyond utilizing existing AI tools to understanding the underlying mathematical foundations, architectural design choices, and optimization techniques that enable scalable, secure, and high-performing systems.
             </p>
             <p>
-              Beyond development, I’m an active LeetCode enthusiast,
-              consistently sharpening my DSA skills in C++, and exploring topics
-              like Generative AI, Cloud Security, and APIs.
-            </p>
-            <p>
-              🛠️ What I Bring to the Table: A problem-solving mindset with a
-              focus on efficiency and user experience An eye for design and
-              detail, backed by strong fundamentals in algorithms and systems A
-              collaborative spirit, honed through teamwork during internships
-              and academic projects Eagerness to learn and adapt — from new
-              frameworks to emerging tech like LLMs and cyber security
-            </p>
-            <p>
-              🚀 Currently Exploring: Building full-stack projects with Next.js
-              14 and PostgreSQL Diving deeper into Generative AI, Prompt
-              Engineering, and LLM APIs Contributing to open-source and refining
-              my personal blog on tech and learning Whether it's designing a
-              seamless UI or tackling backend logic, I’m always up for a new
-              challenge that helps me grow and contribute meaningfully.
+              🛠️ What I Bring to the Table: Hands-on exposure to Python, C++, SQL, PyTorch, and the modern MERN stack ecosystem. I continuously work on expanding my expertise in Generative AI, LLM-powered applications, knowledge retrieval systems, and AI-driven automation—driven by curiosity, continuous learning, and a commitment to building intelligent solutions that create measurable real-world impact.
             </p>
           </div>
         </motion.div>

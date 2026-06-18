@@ -2,13 +2,29 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 import { 
-  FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt
+  FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaPython, FaBrain, FaSlidersH
 } from 'react-icons/fa';
 import { 
-  SiExpress, SiTailwindcss, SiNextdotjs, SiTypescript, SiMongodb 
+  SiExpress, SiTailwindcss, SiNextdotjs, SiTypescript, SiMongodb,
+  SiPytorch, SiTensorflow, SiScikitlearn, SiHuggingface, SiOllama, SiOpenai, SiLangchain
 } from 'react-icons/si';
 
 const skillCategories = [
+  {
+    title: 'AI & Machine Learning',
+    skills: [
+      { name: 'Python', level: '90%', icon: <FaPython className="w-16 h-16 text-blue-400" /> },
+      { name: 'PyTorch', level: '80%', icon: <SiPytorch className="w-16 h-16 text-orange-600" /> },
+      { name: 'TensorFlow', level: '75%', icon: <SiTensorflow className="w-16 h-16 text-orange-500" /> },
+      { name: 'Machine Learning', level: '85%', icon: <SiScikitlearn className="w-16 h-16 text-sky-400" /> },
+      { name: 'Deep Learning & NLP', level: '80%', icon: <FaBrain className="w-16 h-16 text-pink-400" /> },
+      { name: 'Generative AI & LLMs', level: '85%', icon: <SiOpenai className="w-16 h-16 text-emerald-400" /> },
+      { name: 'LangChain & RAG', level: '80%', icon: <SiLangchain className="w-16 h-16 text-emerald-500" /> },
+      { name: 'Hugging Face', level: '85%', icon: <SiHuggingface className="w-16 h-16 text-yellow-400" /> },
+      { name: 'Ollama', level: '80%', icon: <SiOllama className="w-16 h-16 text-slate-100" /> },
+      { name: 'PEFT & Fine-Tuning', level: '75%', icon: <FaSlidersH className="w-16 h-16 text-indigo-400" /> },
+    ],
+  },
   {
     title: 'Frontend',
     skills: [

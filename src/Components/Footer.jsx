@@ -46,14 +46,12 @@ const Footer = () => {
           <div className="text-xl sm:text-2xl font-semibold mb-2">
             Get Daily Updates on Science and Technology
           </div>
-          <Link
+          <a
             className="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-indigo-400 hover:cursor-pointer text-xl font-bold font-mono tracking-widest hover:brightness-125 transition-all duration-300"
-            to="blogs"
-            smooth={true}
-            duration={500}
+            href="#blogs"
           >
             AdiBlogs
-          </Link>
+          </a>
         </motion.div>
 
         <motion.div variants={itemVariants} className="text-base sm:text-lg md:text-2xl leading-relaxed">

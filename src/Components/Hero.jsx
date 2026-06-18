@@ -155,7 +155,7 @@ const Hero = () => {
           className="grid grid-cols-3 gap-3 md:gap-4 max-w-lg mb-8"
         >
           <div className="glass-card p-3 md:p-4 rounded-xl flex flex-col justify-center items-center text-center">
-            <span className="text-xl md:text-2xl font-bold text-white font-mono">2+</span>
+            <span className="text-xl md:text-2xl font-bold text-white font-mono">1+</span>
             <span className="text-[10px] md:text-xs text-slate-500 mt-1 uppercase font-semibold tracking-wider">Years Exp</span>
           </div>
           <div className="glass-card p-3 md:p-4 rounded-xl flex flex-col justify-center items-center text-center">

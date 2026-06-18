@@ -20,7 +20,7 @@ const Contact = () => {
     setStatus({ success: false, message: '' });
 
    
-    const serviceID = 'service_3dnfm8c';
+    const serviceID = 'service_03o2wp3';
     const templateID = 'template_8hhs2tn';
     const publicKey = 'eCy1WPScV58Gwv952';
 
